@@ -48,12 +48,12 @@ router.post('/', function (req, res) {
         res.set("Content-Type", "application/json")
         solution = Number(req.body.arguments[0]) + Number(req.body.arguments[1])
         res.json({"result": solution})
+    } else if (req.bodyoperation === "subtract") {
+        res.set("Content-Type", "application/json")
+        solution = Number(req.body.arguments[0]) - Number(req.body.arguments[1])
+        res.json({"result": solution})
     } 
-    // else if (operation === "subtract") {
-    //     res.set("Content-Type", "application/json")
-    //     solution = Number(arguments[0]) - Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else if (operation === "multiply") {
+    // else if (operation === "multiply") {
     //     res.set("Content-Type", "application/json")
     //     solution = Number(arguments[0]) * Number(arguments[1])
     //     res.json({"result": solution})
