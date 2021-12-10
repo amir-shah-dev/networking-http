@@ -52,12 +52,12 @@ router.post('/', function (req, res) {
         res.set("Content-Type", "application/json")
         solution = Number(req.body.arguments[0]) - Number(req.body.arguments[1])
         res.json({"result": solution})
+    } else if (req.body.operation === "multiply") {
+        res.set("Content-Type", "application/json")
+        solution = Number(req.body.arguments[0]) * Number(req.body.arguments[1])
+        res.json({"result": solution})
     } 
-    // else if (operation === "multiply") {
-    //     res.set("Content-Type", "application/json")
-    //     solution = Number(arguments[0]) * Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else if (operation === "divide") {
+    // else if (operation === "divide") {
     //     res.set("Content-Type", "application/json")
     //     if (Number(arguments[1]) == 0) {
     //         res.json({"result": null})
