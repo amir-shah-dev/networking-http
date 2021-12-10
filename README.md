@@ -1,15 +1,5 @@
 # Advanced Networking HTTP Assignment
 
-## Technologies used:
-- Language
-  - JavaScript
-- Middleware, Routing
-  - Express.js
-- Backend
-  - Node.js
-- Hosting provider
-  - Netlify
-
 ## How to use:
 
 - See website: https://vigorous-mestorf-4516e1.netlify.app/
@@ -21,4 +11,15 @@
     - `sudo npm install -g netlify-cli`
   - To run the project enter: `netlify dev`
   - Access the project on `localhost:8888`
+
+## Technologies used:
+- Language
+  - JavaScript
+- Middleware, Routing
+  - Express.js
+- Backend
+  - Node.js
+- Hosting provider
+  - Netlify
+
 

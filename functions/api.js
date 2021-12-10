@@ -6,17 +6,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const router = express.Router();
 
-// router.get('/:operation/:num1/:num2', (req, res) => {
-//     res.writeHead(200, { "Content-Type": "text/plain" });
-//     res.send(req.params);
-//     // res.end("Welcome");
-// });
-
 router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
 
-    // if (!Number.isSafeInteger(Number(req.params.num1))) {
-    //     console.log("Safe");
-    // }
     if (Number.isSafeInteger(Number(req.params.num1)) == false | Number.isSafeInteger(Number(req.params.num2)) == false) {
         res.status(400).send("Please check your input. Ensure that you are using 64-bit limited integers")
     }
