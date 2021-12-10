@@ -63,10 +63,9 @@ router.post('/', function (req, res) {
         }
         solution = Number(req.body.arguments[0]) / Number(req.body.arguments[1])
         res.json({"result": solution})
-    } 
-    // else {
-    //     res.send(404);
-    // }
+    } else {
+        res.send(404);
+    }
 });
 
 app.use('/', router);
