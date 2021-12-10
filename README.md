@@ -2,10 +2,13 @@
 
 An API that can compute basic integer arithmetic. See below for valid examples of requests:
 
+- See website: https://vigorous-mestorf-4516e1.netlify.app/
+- See Github Repo: https://github.com/axs-44/networking-http
+
 ### GET:
 
 - `https://vigorous-mestorf-4516e1.netlify.app/{add,subtract,multiply,divide}/x/y`
-  - `https://vigorous-mestorf-4516e1.netlify.app/add/4/2`
+  - example: `https://vigorous-mestorf-4516e1.netlify.app/add/4/2`
 
 ### POST:
 
