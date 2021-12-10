@@ -10,7 +10,7 @@ An API that can compute basic integer arithmetic. See below for valid examples o
 ### POST:
 
 - Endpoint: `https://vigorous-mestorf-4516e1.netlify.app`
-- Body (JSON):  `{"operation":"add","arguments":[4,2]}`
+- Request Body (JSON):  `{"operation":"add","arguments":[4,2]}`
 
 ### Notes:
 
