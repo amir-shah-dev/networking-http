@@ -11,7 +11,6 @@ const router = express.Router();
 // });
 
 router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
-    // res.writeHead(200, { "Content-Type": "text/plain" });
     if (req.params.operation === "add") {
         res.set("Content-Type", "text/plain")
         solution = Number(req.params.num1) + Number(req.params.num2)
@@ -26,11 +25,14 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
         res.send(String(solution))
     } else if (req.params.operation === "divide") {
         res.set("Content-Type", "text/plain")
+        if (Number(req.params.num2) == 0) {
+            res.send("undefined")
+        }
         solution = Number(req.params.num1) / Number(req.params.num2)
-        res.send(String(solution))
+        res.status(200).send(String(solution)).end();
+    } else {
+        res.send(404);
     }
-    res.send(404);
-    // res.end("Welcome");
 });
 
 app.use('/', router)
