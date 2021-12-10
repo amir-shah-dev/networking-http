@@ -33,7 +33,7 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
         solution = Number(req.params.num1) / Number(req.params.num2)
         res.status(200).send(String(solution)).end();
     } else {
-        res.send(404);
+        res.status(400).send('Please check your parameters. They must be in the format http://website/{add,subtract,multiply,divide}/x/y where x and y are int');
     }
 });
 
