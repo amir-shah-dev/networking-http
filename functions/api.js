@@ -58,7 +58,7 @@ router.post('/', function (req, res) {
     }
 
     if (Number.isInteger(req.body.arguments[0]) == false | Number.isInteger(req.body.arguments[1]) == false) {
-        res.status(400).send({error: "Please check your parameters. They must be in the correct JSON format. Please see the README for further information"});
+        res.status(400).send({error: "Please check your parameters. They must be valid integers. Please see the README for further information"});
     }
 
     if (Number.isSafeInteger(Number(req.body.arguments[0])) == false | Number.isSafeInteger(Number(req.body.arguments[1])) == false) {
