@@ -62,8 +62,12 @@ router.post('/', function (req, res) {
     // var operation = req.body.operation;
     // var arguments = req.body.arguments;
 
+    if (!["add", "subtract", "multiply", "divide"].includes(req.body.operation)) {
+        res.status(400).send({error: "Please check your parameters. They must be in the correct JSON format. Please see the README for further information"});
+    }
+
     if (Number.isInteger(req.body.arguments[0]) == false | Number.isInteger(req.body.arguments[1]) == false) {
-        res.status(400).send({error: "Please check your parameters. They must be in the JSON format. Please see the README for further information"});
+        res.status(400).send({error: "Please check your parameters. They must be in the correct JSON format. Please see the README for further information"});
     }
 
     if (Number.isSafeInteger(Number(req.body.arguments[0])) == false | Number.isSafeInteger(Number(req.body.arguments[1])) == false) {
