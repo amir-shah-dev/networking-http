@@ -35,5 +35,8 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
     }
 });
 
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
+
 app.use('/', router)
 module.exports.handler = serverless(app);
