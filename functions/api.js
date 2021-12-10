@@ -46,7 +46,7 @@ router.post('/', function (req, res) {
 
     if (req.body.operation === "add") {
         res.set("Content-Type", "application/json")
-        solution = Number(arguments[0]) + Number(arguments[1])
+        solution = Number(req.body.arguments[0]) + Number(req.body.arguments[1])
         res.json({"result": solution})
     } 
     // else if (operation === "subtract") {
