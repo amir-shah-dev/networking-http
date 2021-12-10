@@ -1,4 +1,4 @@
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const express = require('express');
 const serverless = require('serverless-http');
 
@@ -24,13 +24,15 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
             res.send("undefined")
         }
         solution = Number(req.params.num1) / Number(req.params.num2)
-        res.send(String(solution))
+        res.status(200).send(String(solution)).end();
+    } else {
+        res.send(404);
     }
-    res.send(404);
 });
 
-app.use(bodyParser.urlencoded({ extended: false}))
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
 
 router.post('/', function (req, res) {
     var operation = req.body.operation;
@@ -55,8 +57,9 @@ router.post('/', function (req, res) {
         }
         solution = Number(arguments[0]) / Number(arguments[1])
         res.json({"result": solution})
+    } else {
+        res.send(404);
     }
-    res.send(404);
 });
 
 
