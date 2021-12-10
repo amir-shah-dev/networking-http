@@ -16,7 +16,7 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
     if (req.params.operation === "add") {
         res.set("Content-Type", "text/plain")
         solution = Number(req.params.num1) + Number(req.params.num2)
-        res.send(String(solution))
+        res.send(String(solution) + '\r\n')
     } else if (req.params.operation === "subtract") {
         res.set("Content-Type", "text/plain")
         solution = Number(req.params.num1) - Number(req.params.num2)
