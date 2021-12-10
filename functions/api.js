@@ -20,15 +20,15 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
     } else if (req.params.operation === "subtract") {
         res.set("Content-Type", "text/plain")
         solution = Number(req.params.num1) - Number(req.params.num2)
-        res.send(String(solution))
+        res.send(String(solution) + '\r\n')
     } else if (req.params.operation === "multiply") {
         res.set("Content-Type", "text/plain")
         solution = Number(req.params.num1) * Number(req.params.num2)
-        res.send(String(solution))
+        res.send(String(solution) + '\r\n')
     } else if (req.params.operation === "divide") {
         res.set("Content-Type", "text/plain")
         if (Number(req.params.num2) == 0) {
-            res.send("undefined")
+            res.send("undefined" + '\r\n')
         }
         solution = Number(req.params.num1) / Number(req.params.num2)
         res.status(200).send(String(solution)).end();
