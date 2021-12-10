@@ -44,28 +44,28 @@ router.post('/', function (req, res) {
     // var operation = req.body.operation;
     // var arguments = req.body.arguments;
 
-    // if (operation === "add") {
-    //     res.set("Content-Type", "application/json")
-    //     solution = Number(arguments[0]) + Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else if (operation === "subtract") {
-    //     res.set("Content-Type", "application/json")
-    //     solution = Number(arguments[0]) - Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else if (operation === "multiply") {
-    //     res.set("Content-Type", "application/json")
-    //     solution = Number(arguments[0]) * Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else if (operation === "divide") {
-    //     res.set("Content-Type", "application/json")
-    //     if (Number(arguments[1]) == 0) {
-    //         res.json({"result": null})
-    //     }
-    //     solution = Number(arguments[0]) / Number(arguments[1])
-    //     res.json({"result": solution})
-    // } else {
-    //     res.send(404);
-    // }
+    if (operation === "add") {
+        res.set("Content-Type", "application/json")
+        solution = Number(arguments[0]) + Number(arguments[1])
+        res.json({"result": solution})
+    } else if (operation === "subtract") {
+        res.set("Content-Type", "application/json")
+        solution = Number(arguments[0]) - Number(arguments[1])
+        res.json({"result": solution})
+    } else if (operation === "multiply") {
+        res.set("Content-Type", "application/json")
+        solution = Number(arguments[0]) * Number(arguments[1])
+        res.json({"result": solution})
+    } else if (operation === "divide") {
+        res.set("Content-Type", "application/json")
+        if (Number(arguments[1]) == 0) {
+            res.json({"result": null})
+        }
+        solution = Number(arguments[0]) / Number(arguments[1])
+        res.json({"result": solution})
+    } else {
+        res.send(404);
+    }
 });
 
 app.use('/', router);
