@@ -18,7 +18,7 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
     //     console.log("Safe");
     // }
     if (Number.isSafeInteger(Number(req.params.num1)) == false | Number.isSafeInteger(Number(req.params.num2)) == false) {
-        res.status(500).send("Internal Error, please check your input")
+        res.status(400).send("Please check your input. Ensure that you are using 64-bit limited integers")
     }
 
     if (req.params.operation === "add") {
@@ -45,7 +45,7 @@ router.get('/:operation/:num1(\\d+)/:num2(\\d+)', function (req, res) {
         checkBounds(solution, res);
         res.status(200).send(String(solution)).end();
     } else {
-        res.status(400).send('Please check your parameters. They must be in the format http://website/{add,subtract,multiply,divide}/x/y where x and y are int');
+        res.status(500).send('Internal Error');
     }
 });
 
@@ -62,8 +62,12 @@ router.post('/', function (req, res) {
     // var operation = req.body.operation;
     // var arguments = req.body.arguments;
 
+    if (Number.isInteger(req.body.arguments[0]) == false | Number.isInteger(req.body.arguments[1]) == false) {
+        res.status(400).send({error: "Please check your parameters. They must be in the JSON format. Please see the README for further information"});
+    }
+
     if (Number.isSafeInteger(Number(req.body.arguments[0])) == false | Number.isSafeInteger(Number(req.body.arguments[1])) == false) {
-        res.status(500).send("Internal Error, please check your input")
+        res.status(500).send("Please check your input. Ensure that you are using 64-bit limited integers")
     }
 
     if (req.body.operation === "add") {
@@ -97,7 +101,7 @@ router.post('/', function (req, res) {
 app.use('/', router);
 
 app.use((request, response, next) => {
-    response.status(400).send("Please check your parameters. They must be in the format http://website/{add,subtract,multiply,divide}/x/y where x and y are integers")
+    response.status(400).send("Please check your input. See the README for further information")
 })
 
 module.exports.handler = serverless(app);
