@@ -1,5 +1,13 @@
 # Advanced Networking HTTP Assignment
 
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
+
 An API that can compute basic integer arithmetic. See below for valid examples of requests:
 
 - See website: https://vigorous-mestorf-4516e1.netlify.app/
